@@ -35,10 +35,11 @@ O sistema visa gerenciar o catálogo de treinamentos da Beedoo, permitindo o reg
 [BUG-03] Ausência de tratamento visual (placeholder) para imagens.
 
 [BUG-04] Falha na validação lógica de períodos (datas).
-    
-[BUG-05] Falha na funcionalidade de exclusão de cursos.
-    
-[BUG-06] Ausência ou inoperância da funcionalidade de edição de cursos.
+
+[BUG-06] Falha na funcionalidade de exclusão de cursos.
+
+[BUG-05] Ausência ou inoperância da funcionalidade de edição de cursos.
+
 ---
 
 ## 🛠️ Metodologia e Ferramentas
