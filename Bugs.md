@@ -111,9 +111,10 @@ Passos para Reproduzir:
     2 - Clica no Botão [ EXCLUIR CURSO]
     3 - Observar a "Lista de Cursos".
 
-**Resultado Atual:** O sistema não faz a devida exclusão do curso embora mostre que o curso foi excluído com sucesso.
+**Resultado Atual:** O sistema não faz a devida exclusão do curso embora mostre que o curso foi excluído com sucesso. Porém a requisição DELETE retorna um Erro 405 (Method Not Allowed), impedindo a exclusão real do registro.
 
-**Resultado Esperado:** O sistema deve fazer a devida exclusão do curso ao ser pressionado o botão [EXCLUIR CURSO] 
+**Resultado Esperado:** O sistema deve estar configurado para aceitar o método DELETE na API, ou o front-end deve tratar o erro 405 exibindo uma mensagem de falha ao usuário, em vez de uma mensagem de sucesso. 
+
 
 ### Evidências
   * [Visualizar Print do Erro](https://drive.google.com/file/d/1cmHLmP-u1L_vBbGwcB6AksmNa8tc6d9Z/view?usp=drive_link)
