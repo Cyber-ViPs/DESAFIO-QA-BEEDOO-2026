@@ -23,7 +23,7 @@ O sistema visa gerenciar o catálogo de treinamentos da Beedoo, permitindo o reg
 ### Pontos Críticos Identificados
 * **Sanitização de Inputs:** Verificação de vulnerabilidades de Segurança (XSS).
 * **Validação de Regras de Negócio:** Campos obrigatórios e lógica de datas.
-* **Integridade de Ações:** Falhas nas operações de CRUD (Exclusão inoperante e ausência de edição).
+* **Integridade de Ações:** Falhas nas operações de CRUD. Identificado erro 405 Method Not Allowed na requisição DELETE, impedindo a exclusão real do registro e gerando mensagens falsas de sucesso na interface.
 * **Consistência de Dados:** Garantir que o que é enviado via API é refletido corretamente na interface.
 
 **Nota de Observação: Durante os testes, foram identificados comportamentos sistêmicos na validação de formulários. Os principais achados incluem:**
@@ -39,14 +39,21 @@ O sistema visa gerenciar o catálogo de treinamentos da Beedoo, permitindo o reg
 [BUG-05] Falha na funcionalidade de exclusão de cursos.
 
 [BUG-06] Ausência ou inoperância da funcionalidade de edição de cursos.
+---
 
+## 🛡️ Resultados de Testes de Segurança e Integração
+
+Análise de Tráfego: Confirmado o uso do método POST para envio de dados, evitando a exposição de parâmetros na URL.
+
+Validação de API: Identificada falha de permissão no servidor (405 Method Not Allowed) durante a tentativa de exclusão de registros via método DELETE.
+
+Integridade de Dados: Confirmada a ausência de sanitização de inputs, resultando em vulnerabilidade de Stored XSS.
 ---
 
 ## 🛠️ Metodologia e Ferramentas
 * **Proxy de Interceptação:** Uso do **Burp Suite** para validar vulnerabilidades no Back-end e análise de requisições JSON.
 * **Escrita de Testes:** Metodologia BDD com **Gherkin** para clareza de cenários.
 * **Análise Técnica:** Inspeção de console e tráfego de rede via Chrome DevTools.
-
 ---
 
 ### Cenário: Validar vulnerabilidade de XSS no cadastro
